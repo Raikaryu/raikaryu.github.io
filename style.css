@@ -1,28 +1,42 @@
 body {
     text-align: center;
     background-image: linear-gradient(to right, #77a1d3, #79cbca, #e684ae) ;
-    font-family: Cambria;
-    font-size: 12mm;
-    
-    
+  
+    padding-inline: 15%;
 }
 #quiz-container .question{
-    border: solid;
+    border-style: inset;
     border-radius: 25px;
     background-color: whitesmoke;
-    border-color: purple;
+    border-color: rgb(191, 96, 191);
+    margin: 70px;
+    font-family: Cambria;
+    font-size: 12mm;
 }
 #options-container button{
-    border: solid;
-    border-color: purple;
+    
     font-family: Cambria;
     font-size: 12mm;
     border-radius: 15px;
-    background-color: whitesmoke
+    background-color: whitesmoke;
+    margin: 15px;
+    border-color: rgb(191, 96, 191);
+    font-size: 12mm;
+    
 }
 #options-container button:hover{
-    background-image: linear-gradient(to left top, #a1ffce, #faffd1)
+    background-image: linear-gradient(to left top, #a1ffce, #faffd1);
+    
 }
-    #next-button{
-    color: pink;
+#next-button{
+    float: right;
+    font-size: 6mm;
+    margin-top: 60px;
+    font-family: Cambria;
+    border-radius: 15px;
+    border-color: #79cbca;
+    
+}
+#next-button:hover{
+    transform: scale(1.3);
 }
