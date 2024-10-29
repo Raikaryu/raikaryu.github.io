@@ -1,0 +1,28 @@
+body {
+    text-align: center;
+    background-image: linear-gradient(to right, #77a1d3, #79cbca, #e684ae) ;
+    font-family: Cambria;
+    font-size: 12mm;
+    
+    
+}
+#quiz-container .question{
+    border: solid;
+    border-radius: 25px;
+    background-color: whitesmoke;
+    border-color: purple;
+}
+#options-container button{
+    border: solid;
+    border-color: purple;
+    font-family: Cambria;
+    font-size: 12mm;
+    border-radius: 15px;
+    background-color: whitesmoke
+}
+#options-container button:hover{
+    background-image: linear-gradient(to left top, #a1ffce, #faffd1)
+}
+    #next-button{
+    color: pink;
+}
