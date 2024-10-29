@@ -37,6 +37,7 @@ body {
 #options-container button:hover{
     transform: scale(1.1);
     
+    
 }
 #next-button, #replay-button{
     float: right;
