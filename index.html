@@ -5,25 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz cinéma</title>
     <link rel="stylesheet" href="style.css">
-    <script src="questions.js"></script>
+    <script src="game.js" type="module"></script>
 </head>
 <body>
     <div id="quiz-container">
-        <!-- Section pour la question -->
-            <div class="question">
-            Quel est le plus gros succès au box office de James Cameron ?
-            </div>
-            <!-- Section pour les options -->
+            <div class="question" id="questions-container"></div>
             <div class="options" id="options-container">
-              <button>Avatar</button>
-              <br><button>Titanic</button></br>
-              <button>Terminator 2</button>
-             </div>
-            
-            <!-- Prévois déjà le design du bouton "suivant" pour passer à la prochaine question -->
-             <div class="button-container">
+              <button></button>
+              <br><button></button></br>
+              <button></button>
+            </div>
+            <div class="button-container">
               <button id="next-button">Suivant</button>
             </div>
-        </div>
+    </div>
 </body>
 </html>

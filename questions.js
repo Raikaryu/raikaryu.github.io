@@ -27,6 +27,5 @@ export const quiz_cinema = {
         options:["857 heures","10 heures et 43 minutes","9 heures"],
         correct_answer: "857 heures"
       },
-      // Autres questions...
     ]
   };
