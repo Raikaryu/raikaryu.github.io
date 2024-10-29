@@ -27,6 +27,7 @@ body {
 #options-container button:hover{
     background-image: linear-gradient(to left top, #a1ffce, #faffd1);
     
+    
 }
 #next-button{
     float: right;
