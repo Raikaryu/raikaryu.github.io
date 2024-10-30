@@ -2,6 +2,7 @@ import { quiz_cinema } from './questions.js';
 const questions = document.getElementById("questions-container");
 const options = document.getElementById("options-container");
 const suivant = document.getElementById("next-button")
+const rejouer = document.getElementById("replay-button")
 
 // Variables pour suivre l'état du quiz
 let currentQuestionIndex = 0; // Commence à la première question
@@ -23,8 +24,18 @@ function loadQuestion() {
     choix.innerText = answer;
     choix.classList.add('options-container');
     options.appendChild(choix);
+    choix.addEventListener('click',() => {
+      if (choix.innerText == currentQuestion.correct_answer) {
+        choix.classList.add('right-answer')
+      }
+      else {choix.classList.add('wrong-answer')
+      }
+      
+    
+    })
   });
 }
+
 
 // Ajouter un écouteur d'événements pour le bouton "Suivant"
 suivant.addEventListener('click', () => {
@@ -40,9 +51,16 @@ suivant.addEventListener('click', () => {
     questions.innerText = 'Ton score est';
     options.innerHTML = ''; // Effacer les options
     suivant.style.display = 'none'; // Cacher le bouton Suivant
+    rejouer.style.display = 'inline-block'
   }
 });
 
-// Charger la première question au chargement de la page
+rejouer.addEventListener('click',() => {
+  currentQuestionIndex = 0;
+  suivant.style.display = 'inline-block'; 
+  rejouer.style.display = 'none'
+  loadQuestion();
+})
+//Charger la première question au chargement de la page
 loadQuestion();
- 
+

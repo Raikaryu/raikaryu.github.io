@@ -23,12 +23,22 @@ body {
     border-color: rgb(191, 96, 191);
     font-size: 12mm;
     
+    &.right-answer { 
+        border : solid;
+        border-color : rgb(104, 206, 104);
+    }
+    &.wrong-answer {
+        border : solid;
+        border-color : rgb(209, 71, 71);
+    
+    }
+
 }
 #options-container button:hover{
-    background-image: linear-gradient(to left top, #a1ffce, #faffd1);
+    transform: scale(1.1);
     
 }
-#next-button{
+#next-button, #replay-button{
     float: right;
     font-size: 6mm;
     margin-top: 60px;
