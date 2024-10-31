@@ -7,7 +7,7 @@ export const quiz_cinema = {
       },
       {
         text: "Quelle est l'actrice la plus oscarisée au monde ?",
-        options: ["Jane Fonda","Katherine Hepburn","Mery Streep"],
+        options: ["Jane Fonda","Katherine Hepburn","Meryl Streep"],
         correct_answer: "Katherine Hepburn"
       },
       {
