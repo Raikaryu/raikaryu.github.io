@@ -4,7 +4,10 @@ const options = document.getElementById("options-container");
 const suivant = document.getElementById("next-button")
 const rejouer = document.getElementById("replay-button")
 
+
 let currentQuestionIndex = 0;
+let score = 0
+
 function loadQuestion() {
 
   options.innerHTML = '';
@@ -19,15 +22,27 @@ function loadQuestion() {
   });
 }
 
-function checkAnswer (answer, question){
-
+function checkAnswer (answer, question) {
+  suivant.disabled = true;
   answer.addEventListener('click',() => {
+    
     if (answer.innerText == question.correct_answer) {
       answer.classList.add('right-answer')
+      suivant.disabled = false;
+      score += 2
+      
     }
+
     else {
       answer.classList.add('wrong-answer')
+      suivant.disabled = false;
+      
     }
+
+    const allButtons = options.getElementsByTagName('button');
+      Array.from(allButtons).forEach(btn => {
+        btn.disabled = true;
+    })
   })
 }
 
@@ -38,7 +53,7 @@ suivant.addEventListener('click', () => {
 
     loadQuestion();
   } else {
-    questions.innerText = 'Ton score est';
+    questions.innerText = 'Tu as eu ' +  score + "/10 !!!";
     options.innerHTML = ''; 
     suivant.style.display = 'none';
     rejouer.style.display = 'inline-block'
@@ -50,7 +65,9 @@ rejouer.addEventListener('click',() => {
   suivant.style.display = 'inline-block'; 
   rejouer.style.display = 'none'
   loadQuestion();
+  score = 0
 })
+
 loadQuestion();
 
 
