@@ -4,53 +4,43 @@ const options = document.getElementById("options-container");
 const suivant = document.getElementById("next-button")
 const rejouer = document.getElementById("replay-button")
 
-// Variables pour suivre l'état du quiz
-let currentQuestionIndex = 0; // Commence à la première question
-
-// Fonction pour afficher une question basée sur l'index actuel
+let currentQuestionIndex = 0;
 function loadQuestion() {
-  // Vider le conteneur des options
+
   options.innerHTML = '';
-
-  // Récupérer la question actuelle
   let currentQuestion = quiz_cinema.questions[currentQuestionIndex];
-  
-  // Injecter la question dans le HTML
   questions.innerText = currentQuestion.text;
-
-  // Injecter les options dans le HTML 
   currentQuestion.options.forEach(answer => {
     const choix = document.createElement('button');
     choix.innerText = answer;
     choix.classList.add('options-container');
     options.appendChild(choix);
-    choix.addEventListener('click',() => {
-      if (choix.innerText == currentQuestion.correct_answer) {
-        choix.classList.add('right-answer')
-      }
-      else {choix.classList.add('wrong-answer')
-      }
-      
-    
-    })
+    checkAnswer(choix, currentQuestion)
   });
 }
 
+function checkAnswer (answer, question){
 
-// Ajouter un écouteur d'événements pour le bouton "Suivant"
+  answer.addEventListener('click',() => {
+    if (answer.innerText == question.correct_answer) {
+      answer.classList.add('right-answer')
+    }
+    else {
+      answer.classList.add('wrong-answer')
+    }
+  })
+}
+
 suivant.addEventListener('click', () => {
-  // Incrémenter l'index de la question
-  currentQuestionIndex++;
 
-  // Vérifier s'il reste des questions
+  currentQuestionIndex++;
   if (currentQuestionIndex < quiz_cinema.questions.length) {
-    // Afficher la question suivante
+
     loadQuestion();
   } else {
-    // Si plus de questions, indiquer la fin du quiz
     questions.innerText = 'Ton score est';
-    options.innerHTML = ''; // Effacer les options
-    suivant.style.display = 'none'; // Cacher le bouton Suivant
+    options.innerHTML = ''; 
+    suivant.style.display = 'none';
     rejouer.style.display = 'inline-block'
   }
 });
@@ -61,6 +51,6 @@ rejouer.addEventListener('click',() => {
   rejouer.style.display = 'none'
   loadQuestion();
 })
-//Charger la première question au chargement de la page
 loadQuestion();
+
 
