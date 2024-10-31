@@ -46,6 +46,17 @@ function checkAnswer (answer, question) {
   })
 }
 
+function messageFin () {
+  if (score <= 4 ) {
+    let message = score + "/10 = nul à chier 😱"
+    return message
+  }  
+  else {
+    let message = score + "/10 = bien joué, beau gosse 😎"
+    return message
+    }
+}
+
 suivant.addEventListener('click', () => {
 
   currentQuestionIndex++;
@@ -53,7 +64,7 @@ suivant.addEventListener('click', () => {
 
     loadQuestion();
   } else {
-    questions.innerText = 'Tu as eu ' +  score + "/10 !!!";
+    questions.innerText = messageFin();
     options.innerHTML = ''; 
     suivant.style.display = 'none';
     rejouer.style.display = 'inline-block'
