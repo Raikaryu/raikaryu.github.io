@@ -6,10 +6,10 @@ const rejouer = document.getElementById("replay-button")
 
 
 let currentQuestionIndex = 0;
-let score = 0
+let score = 0;
+let myBarProgress = 0;
 
 function loadQuestion() {
-
   options.innerHTML = '';
   let currentQuestion = quiz_cinema.questions[currentQuestionIndex];
   questions.innerText = currentQuestion.text;
@@ -20,6 +20,7 @@ function loadQuestion() {
     options.appendChild(choix);
     checkAnswer(choix, currentQuestion)
   });
+  
 }
 
 function checkAnswer (answer, question) {
@@ -69,6 +70,7 @@ suivant.addEventListener('click', () => {
     suivant.style.display = 'none';
     rejouer.style.display = 'inline-block'
   }
+  addProgress();
 });
 
 rejouer.addEventListener('click',() => {
@@ -76,9 +78,21 @@ rejouer.addEventListener('click',() => {
   suivant.style.display = 'inline-block'; 
   rejouer.style.display = 'none'
   loadQuestion();
-  score = 0
+  score = 0;
+  myBarProgress = 0;
+  resetProgress()
 })
 
+function addProgress() {
+   myBarProgress += 100 / quiz_cinema.questions.length
+    if (myBarProgress > 100) {
+        myBarProgress = 100;
+    }
+    document.getElementById("progressBarFull").style.width = myBarProgress + "%";
+}
+
+function resetProgress() {
+  document.getElementById("progressBarFull").style.width = "0%";
+}
+
 loadQuestion();
-
-

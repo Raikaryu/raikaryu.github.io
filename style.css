@@ -36,9 +36,6 @@ body {
 }
 #options-container button:hover{
     transform: scale(1.1);
-    
-    
-    
 }
 #next-button, #replay-button{
     float: right;
@@ -59,4 +56,18 @@ body {
 }
 #next-button:disabled {
     cursor: not-allowed;
+}
+
+#progressBar {
+    width: 50%;
+    height: 2rem;
+    border: 1px solid black;
+    margin-top: 100px;
+}
+
+#progressBarFull {
+    height: 2rem;
+    background-color: black;
+    width: 0%;
+    transition: all ease-in-out 0.5s;
 }
