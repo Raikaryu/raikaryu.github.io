@@ -62,7 +62,9 @@ body {
     width: 50%;
     height: 2rem;
     border: 1px solid black;
-    margin-top: 100px;
+    margin: auto;
+    margin-top:  150px;
+    
 }
 
 #progressBarFull {
