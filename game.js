@@ -1,12 +1,15 @@
 import { quiz_cinema } from './questions.js';
 const questions = document.getElementById("questions-container");
 const options = document.getElementById("options-container");
-const suivant = document.getElementById("next-button")
-const rejouer = document.getElementById("replay-button")
+const suivant = document.getElementById("next-button");
+const rejouer = document.getElementById("replay-button");
+const timer = document.getElementById("timer");
 
 let currentQuestionIndex = 0;
 let score = 0;
 let myBarProgress = 0;
+let time = 15;
+let intervalId = null;
 
 function loadQuestion() {
   options.innerHTML = '';
@@ -18,21 +21,19 @@ function loadQuestion() {
     choix.classList.add('options-container');
     options.appendChild(choix);
     checkAnswer(choix, currentQuestion)
-  }); 
+  });
+  
+  startTimer();//lancer le timer 
 }
 
 function checkAnswer (answer, question) {
   suivant.disabled = true;
-function checkAnswer (answer, question) {
-  suivant.disabled = true;
   answer.addEventListener('click',() => {
-    
     if (answer.innerText == question.correct_answer) {
       answer.classList.add('right-answer')
       suivant.disabled = false;
       score += 2
     }
-
     else {
       answer.classList.add('wrong-answer')
       suivant.disabled = false;
@@ -40,6 +41,7 @@ function checkAnswer (answer, question) {
     const allButtons = options.getElementsByTagName('button');
       Array.from(allButtons).forEach(btn => {
         btn.disabled = true;
+        stopTimer();
     })
   })
 }
@@ -60,7 +62,6 @@ suivant.addEventListener('click', () => {
   if (currentQuestionIndex < quiz_cinema.questions.length) {
     loadQuestion();
   } else {
-    questions.innerText = messageFin();
     questions.innerText = messageFin();
     options.innerHTML = ''; 
     suivant.style.display = 'none';
@@ -90,5 +91,27 @@ function addProgress() {
 function resetProgress() {
   document.getElementById("progressBarFull").style.width = "0%";
 }
+// ajouter un timer
 
+  //déclarer les variables à utiliser
+
+  function startTimer() {
+    time =15
+    intervalId= setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    
+    timer.innerHTML = "00:" + time;
+    time--;
+    
+    if (time <= 0) {
+        time = 15;
+        stopTimer();
+    }
+  }
+function stopTimer() {
+    clearInterval(intervalId);
+    console.log(time, intervalId)
+}
 loadQuestion();
