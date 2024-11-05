@@ -10,51 +10,53 @@ let score = 0;
 let myBarProgress = 0;
 let time = 10;
 let intervalId = null;
+let longeurTableau = quiz_cinema.questions.length
 
+//créer la fonction loadQuestion pour afficher les questions
 function loadQuestion() {
   options.innerHTML = '';
   let currentQuestion = quiz_cinema.questions[currentQuestionIndex];
   questions.innerText = currentQuestion.text;
   currentQuestion.options.forEach(answer => {
-    const choix = document.createElement('button'); // renommer choix (+ explicite)
-    choix.innerText = answer;
-    choix.classList.add('options-container');
-    options.appendChild(choix);
-    checkAnswer(choix, currentQuestion)
+    const btnChoix = document.createElement('button');
+    btnChoix.innerText = answer;
+    btnChoix.classList.add('options-container');
+    options.appendChild(btnChoix);
+    checkAnswer(btnChoix, currentQuestion)
   });
-  
   startTimer();//lancer le timer 
 }
-
+// créer la fonction checkanswer pour vérifier la bonne réponse
 function checkAnswer (answer, question) {
   suivant.disabled = true;
   answer.addEventListener('click',() => {
     if (answer.innerText == question.correct_answer) {
       answer.classList.add('right-answer')
       suivant.disabled = false;
-      score += 2
+      score ++;
     }
     else {
       answer.classList.add('wrong-answer')
       suivant.disabled = false;
     }
-    const allButtons = options.getElementsByTagName('button');
+    const allButtons = options.getElementsByTagName('button'); //une fois la réponse est donnée, désactiver tout les boutons
       Array.from(allButtons).forEach(btn => {
         btn.disabled = true;
         
     });
-    stopTimer();
+    stopTimer(); //une fois l'utilisateur a répondu, on arrete le timer
   });
   
 }
 
-function messageFin () { //récupérer longueur du tableau pour calcul du score
-  if (score <= 4 ) {
-    let message = score + "/10 = nul à chier 😱"
+//créer la fonction messageFin pour afficher le message final avec le score
+function messageFin () {
+  if (score <= 2 ) {
+    let message = score + "/" + longeurTableau + " nul à chier 😱"
     return message
   }  
   else {
-    let message = score + "/10 = bien joué, beau gosse 😎"
+    let message = score + "/" + longeurTableau + " bien joué 😎"
     return message
     }
 }
