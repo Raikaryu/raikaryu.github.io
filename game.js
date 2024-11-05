@@ -8,7 +8,7 @@ const timer = document.getElementById("timer");
 let currentQuestionIndex = 0;
 let score = 0;
 let myBarProgress = 0;
-let time = 15;
+let time = 10;
 let intervalId = null;
 
 function loadQuestion() {
@@ -41,9 +41,11 @@ function checkAnswer (answer, question) {
     const allButtons = options.getElementsByTagName('button');
       Array.from(allButtons).forEach(btn => {
         btn.disabled = true;
-        stopTimer();
-    })
-  })
+        
+    });
+    stopTimer();
+  });
+  
 }
 
 function messageFin () { //récupérer longueur du tableau pour calcul du score
@@ -68,6 +70,7 @@ suivant.addEventListener('click', () => {
     rejouer.style.display = 'inline-block'
   }
   addProgress();
+  time= 10
 });
 
 rejouer.addEventListener('click',() => {
@@ -96,22 +99,31 @@ function resetProgress() {
   //déclarer les variables à utiliser
 
   function startTimer() {
-    time =15
     intervalId= setInterval(updateTimer, 1000);
 }
-
 function updateTimer() {
-    
-    timer.innerHTML = "00:" + time;
+    timer.innerHTML =  time;
     time--;
-    
-    if (time <= 0) {
-        time = 15;
+    if (time < 0) {
+        time = 10;
         stopTimer();
+        skipQuestion();
     }
   }
 function stopTimer() {
     clearInterval(intervalId);
-    console.log(time, intervalId)
 }
+function skipQuestion(){
+  currentQuestionIndex++;
+  if (currentQuestionIndex < quiz_cinema.questions.length) {
+    loadQuestion();
+  } else {
+    questions.innerText = messageFin();
+    options.innerHTML = '';
+    suivant.style.display = 'none';
+    rejouer.style.display = 'inline-block'
+   }
+  addProgress();
+}
+
 loadQuestion();
