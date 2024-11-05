@@ -107,7 +107,7 @@ function updateTimer() {
     if (time < 0) {
         time = 10;
         stopTimer();
-        skipQuestion();
+        showRightAnswer();
     }
   }
 function stopTimer() {
@@ -124,6 +124,19 @@ function skipQuestion(){
     rejouer.style.display = 'inline-block'
    }
   addProgress();
+}
+
+function showRightAnswer() {
+  const allButtons = options.getElementsByTagName('button');
+      Array.from(allButtons).forEach(btn => {
+        btn.disabled = true;
+    })
+  const correctAnswer = quiz_cinema.questions[currentQuestionIndex].correct_answer;
+  const correctButton = Array.from(options.getElementsByTagName('button')).find(btn => btn.innerText === correctAnswer);
+  correctButton.classList.add('right-answer');
+  setTimeout(() => {
+    skipQuestion();
+  }, 3000 );
 }
 
 loadQuestion();
