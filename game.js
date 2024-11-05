@@ -23,12 +23,16 @@ function loadQuestion() {
 
 function checkAnswer (answer, question) {
   suivant.disabled = true;
+function checkAnswer (answer, question) {
+  suivant.disabled = true;
   answer.addEventListener('click',() => {
+    
     if (answer.innerText == question.correct_answer) {
       answer.classList.add('right-answer')
       suivant.disabled = false;
       score += 2
     }
+
     else {
       answer.classList.add('wrong-answer')
       suivant.disabled = false;
@@ -56,6 +60,7 @@ suivant.addEventListener('click', () => {
   if (currentQuestionIndex < quiz_cinema.questions.length) {
     loadQuestion();
   } else {
+    questions.innerText = messageFin();
     questions.innerText = messageFin();
     options.innerHTML = ''; 
     suivant.style.display = 'none';
