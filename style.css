@@ -1,57 +1,68 @@
 body {
     text-align: center;
-    background-image: linear-gradient(to right, #77a1d3, #79cbca, #e684ae) ;
-  
+    /*background-image: linear-gradient(to right, #77a1d3, #79cbca, #e684ae);*/
+    background-image: url("https://www.shortsattack.com/wp-content/uploads/2022/02/astoria.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-inline: 15%;
 }
-#quiz-container .question{
-    border-style: inset;
+#quiz-container .question {
+    border: 0.2rem solid #fff;;
+    box-shadow: 0 0 1px #981616, 0 0 2px #981616, 0 0 6px #981616, 0 0 12px #981616, inset 0 0 1px #981616, inset 0 0 2px #981616, inset 0 0 6px #981616, inset 0 0 12px #981616;
     border-radius: 25px;
     background-color: whitesmoke;
     border-color: rgb(191, 96, 191);
-    margin: 70px;
-    font-family: Cambria;
+    margin: 30px;
+    font-family: monospace;
     font-size: 12mm;
-}
-#options-container button{
     
-    font-family: Cambria;
-    font-size: 12mm;
+}
+#options-container button {
+    
+    font-family: monospace;
+    border: 0.2rem solid #fff;
+    padding: 0.4em;
+    font-size: 10mm;
     border-radius: 15px;
+    box-shadow: 0 0 1px #981616, 0 0 2px #981616, 0 0 6px #981616, 0 0 12px #981616, inset 0 0 1px #981616, inset 0 0 2px #981616, inset 0 0 6px #981616, inset 0 0 12px #981616;
     background-color: whitesmoke;
-    margin: 15px;
+    margin: 10px;
     border-color: rgb(191, 96, 191);
-    font-size: 12mm;
     
     &.right-answer { 
-        border : solid;
-        border-color : rgb(104, 206, 104);
+        border: solid;
+        border-color: rgb(88, 230, 88);
+        background-color: rgb(137, 198, 137);
     }
     &.wrong-answer {
-        border : solid;
-        border-color : rgb(209, 71, 71);
-    
+        border: solid;
+        border-color: rgb(246, 52, 52);
+        background-color: rgb(226, 82, 82);
     }
 
 }
-#options-container button:hover{
+#options-container button:hover {
     transform: scale(1.1);
+    
+    
 }
-#next-button, #replay-button{
+#next-button, #replay-button {
     float: right;
+    background-color: whitesmoke;
+    border: 0.2rem solid #fff;
     font-size: 6mm;
     margin-top: 60px;
-    font-family: Cambria;
+    font-family: monospace;
     border-radius: 15px;
-    border-color: #79cbca;
+    box-shadow: 0 0 1px #981616, 0 0 2px #981616, 0 0 6px #981616, 0 0 12px #981616, inset 0 0 1px #981616, inset 0 0 2px #981616, inset 0 0 6px #981616, inset 0 0 12px #981616;
+    border-color: rgb(191, 96, 191);
     &.disabled {
         pointer-events: none;
         opacity: 0.5;
-        
     }    
     
 }
-#next-button:hover{
+#next-button:hover {
     transform: scale(1.3);
 }
 #next-button:disabled {
@@ -61,15 +72,26 @@ body {
 #progressBar {
     width: 50%;
     height: 2rem;
-    border: 1px solid black;
+    box-shadow: 0 0 1px #981616, 0 0 2px #981616, 0 0 6px #981616, 0 0 12px #981616, inset 0 0 1px #981616, inset 0 0 2px #981616, inset 0 0 6px #981616, inset 0 0 12px #981616;
+    border-radius: 15px;
+    border: 0.2rem solid rgb(191, 96, 191);
     margin: auto;
     margin-top:  150px;
-    
+    background-color: whitesmoke;
 }
 
 #progressBarFull {
     height: 2rem;
-    background-color: black;
+    background-color: rgb(191, 96, 191);
     width: 0%;
+    box-shadow: 0 0 1px #981616, 0 0 2px #981616, 0 0 6px #981616, 0 0 12px #981616, inset 0 0 1px #981616, inset 0 0 2px #981616, inset 0 0 6px #981616, inset 0 0 12px #981616;
+    border-radius: 15px;
     transition: all ease-in-out 0.5s;
+}
+
+#timer {
+    font-size: 100px;
+    text-align: center;
+    margin-top: 50px;
+    margin-right: 70px;
 }
