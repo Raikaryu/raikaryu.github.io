@@ -13,7 +13,7 @@ let intervalId = null;
 let longeurTableau = quiz_cinema.questions.length
 
 //créer la fonction loadQuestion pour afficher les questions
-function loadQuestion() {
+function loadQuestion() { 
   options.innerHTML = '';
   let currentQuestion = quiz_cinema.questions[currentQuestionIndex];
   questions.innerText = currentQuestion.text;
@@ -23,8 +23,9 @@ function loadQuestion() {
     btnChoix.classList.add('options-container');
     options.appendChild(btnChoix);
     checkAnswer(btnChoix, currentQuestion)
-  });
-  startTimer();//lancer le timer 
+    });
+  timer.classList.remove('warning')
+  startTimer(); //lancer le timer
 }
 // créer la fonction checkanswer pour vérifier la bonne réponse
 function checkAnswer (answer, question) {
@@ -34,17 +35,15 @@ function checkAnswer (answer, question) {
       answer.classList.add('right-answer')
       suivant.disabled = false;
       score ++;
-    }
-    else {
+    } else {
       answer.classList.add('wrong-answer')
       suivant.disabled = false;
-    }
-    const allButtons = options.getElementsByTagName('button'); //une fois la réponse est donnée, désactiver tout les boutons
-      Array.from(allButtons).forEach(btn => {
-        btn.disabled = true;
-        
+      }
+  const allButtons = options.getElementsByTagName('button'); //une fois la réponse est donnée, désactiver tout les boutons
+  Array.from(allButtons).forEach(btn => {
+    btn.disabled = true;    
     });
-    stopTimer(); //une fois l'utilisateur a répondu, on arrete le timer
+  stopTimer(); //une fois l'utilisateur a répondu, on arrete le timer
   });
   
 }
@@ -58,87 +57,93 @@ function messageFin () {
   else {
     let message = score + "/" + longeurTableau + " bien joué 😎"
     return message
-    }
+  }
 }
-
+//ecouter le boutons suivant pour passer la question suivante
 suivant.addEventListener('click', () => {
   currentQuestionIndex++;
-  if (currentQuestionIndex < quiz_cinema.questions.length) {
-    loadQuestion();
-  } else {
-    questions.innerText = messageFin();
-    options.innerHTML = ''; 
-    suivant.style.display = 'none';
-    rejouer.style.display = 'inline-block'
-  }
+    if (currentQuestionIndex < quiz_cinema.questions.length) {
+      loadQuestion();
+    } else { // si plus de question, on considère que la partie est terminée
+      questions.innerText = messageFin();
+      options.innerHTML = '';  
+      suivant.style.display = 'none';
+      rejouer.style.display = 'inline-block';
+    }
   addProgress();
   time= 10
-});
+})
 
+// Ecouter le bouton Rejouer pour recharger les questions
 rejouer.addEventListener('click',() => {
   currentQuestionIndex = 0;
   suivant.style.display = 'inline-block'; 
-  rejouer.style.display = 'none'
+  rejouer.style.display = 'none';
   loadQuestion();
   score = 0;
   myBarProgress = 0;
   resetProgress()
 })
 
+// ajout de la barre de progression
 function addProgress() {
-   myBarProgress += 100 / quiz_cinema.questions.length
+  myBarProgress += 100 / quiz_cinema.questions.length
     if (myBarProgress > 100) {
         myBarProgress = 100;
     }
-    document.getElementById("progressBarFull").style.width = myBarProgress + "%"; // afficher le % ?
+  document.getElementById("progressBarFull").style.width = myBarProgress + "%"; // afficher le % ?
 }
 
 function resetProgress() {
   document.getElementById("progressBarFull").style.width = "0%";
 }
+
 // ajouter un timer
-
-  //déclarer les variables à utiliser
-
-  function startTimer() {
-    intervalId= setInterval(updateTimer, 1000);
+function startTimer() {
+  intervalId= setInterval(updateTimer, 1000);
 }
+
 function updateTimer() {
-    timer.innerHTML =  time;
-    time--;
-    if (time < 0) {
-        time = 10;
-        stopTimer();
-        showRightAnswer();
+  timer.innerHTML =  time;
+  time--;
+    if (time < 3) {
+      timer.classList.add('warning');
     }
-  }
+  
+    if (time < 0) {
+      time = 10; 
+      stopTimer();
+      showRightAnswer();
+    }
+    
+}
 function stopTimer() {
-    clearInterval(intervalId);
+  clearInterval(intervalId);
 }
 function skipQuestion(){
   currentQuestionIndex++;
-  if (currentQuestionIndex < quiz_cinema.questions.length) {
-    loadQuestion();
-  } else {
-    questions.innerText = messageFin();
-    options.innerHTML = '';
-    suivant.style.display = 'none';
-    rejouer.style.display = 'inline-block'
-   }
+    if (currentQuestionIndex < quiz_cinema.questions.length) {
+      loadQuestion();
+    } else {
+      questions.innerText = messageFin();
+      options.innerHTML = '';
+      suivant.style.display = 'none';
+      rejouer.style.display = 'inline-block'
+    }
   addProgress();
 }
 
 function showRightAnswer() {
   const allButtons = options.getElementsByTagName('button');
-      Array.from(allButtons).forEach(btn => {
-        btn.disabled = true;
+  Array.from(allButtons).forEach(btn => {
+      btn.disabled = true;
     })
   const correctAnswer = quiz_cinema.questions[currentQuestionIndex].correct_answer;
   const correctButton = Array.from(options.getElementsByTagName('button')).find(btn => btn.innerText === correctAnswer);
   correctButton.classList.add('right-answer');
   setTimeout(() => {
     skipQuestion();
-  }, 3000 );
+  }, 2000 );
 }
 
-loadQuestion();
+loadQuestion()
