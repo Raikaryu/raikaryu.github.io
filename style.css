@@ -4,15 +4,9 @@ body {
     background-image: url("https://www.shortsattack.com/wp-content/uploads/2022/02/astoria.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    /*background-image: linear-gradient(to right, #77a1d3, #79cbca, #e684ae);*/
-    background-image: url("https://www.shortsattack.com/wp-content/uploads/2022/02/astoria.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
     padding-inline: 15%;
 }
-#quiz-container .question {
-    border: 0.2rem solid #fff;;
-    box-shadow: 0 0 1px #981616, 0 0 2px #981616, 0 0 6px #981616, 0 0 12px #981616, inset 0 0 1px #981616, inset 0 0 2px #981616, inset 0 0 6px #981616, inset 0 0 12px #981616;
+
 #quiz-container .question {
     border: 0.2rem solid #fff;;
     box-shadow: 0 0 1px #981616, 0 0 2px #981616, 0 0 6px #981616, 0 0 12px #981616, inset 0 0 1px #981616, inset 0 0 2px #981616, inset 0 0 6px #981616, inset 0 0 12px #981616;
@@ -28,8 +22,6 @@ body {
     
 }
 #options-container button {
-#options-container button {
-    
     font-family: monospace;
     border: 0.2rem solid #fff;
     padding: 0.4em;
@@ -65,14 +57,8 @@ body {
 
 }
 #options-container button:hover {
-#options-container button:hover {
     transform: scale(1.1);
-    
-    
-    
-    
 }
-#next-button, #replay-button {
 #next-button, #replay-button {
     float: right;
     background-color: whitesmoke;
@@ -94,7 +80,6 @@ body {
     }    
     
 }
-#next-button:hover {
 #next-button:hover {
     transform: scale(1.3);
 }
