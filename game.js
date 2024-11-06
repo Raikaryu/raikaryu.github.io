@@ -4,6 +4,7 @@ const options = document.getElementById("options-container");
 const suivant = document.getElementById("next-button");
 const rejouer = document.getElementById("replay-button");
 const timer = document.getElementById("timer");
+const afficherScore = document.getElementById("afficherScore")
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -39,6 +40,7 @@ function checkAnswer (answer, question) {
       answer.classList.add('wrong-answer')
       suivant.disabled = false;
       }
+  afficherScore.innerText = score
   const allButtons = options.getElementsByTagName('button'); //une fois la réponse est donnée, désactiver tout les boutons
   Array.from(allButtons).forEach(btn => {
     btn.disabled = true;    
@@ -51,19 +53,19 @@ function checkAnswer (answer, question) {
 //créer la fonction messageFin pour afficher le message final avec le score
 function messageFin () {
   if (score <= 1 ) {
-    let message = score + "/" + longeurTableau + " Culture cinématographique à revoir 😱"
+    let message =  " Culture cinématographique à revoir 😱"
     return message
   }  
   if (score <= 4) {
-    let message = score + "/" + longeurTableau + " Toi et le cinéma ça fait 2 non ? 😏 "
+    let message =  " Toi et le cinéma ça fait 2 non ? 😏 "
     return message
   }
   if (score <= 6 ) {
-    let message = score + "/" + longeurTableau + " Tu peux être content.e de toi tu as un minimun de culture 🥳"
+    let message =  " Tu peux être content.e de toi tu as un minimun de culture 🥳"
     return message
   }
-  if (score <= 8) {
-    let message = score + "/" + longeurTableau + " Félicitations tu passes plus de temps au cinéma que chez toi 😂"
+  if (score <= longeurTableau) {
+    let message =  " Félicitations tu passes plus de temps au cinéma que chez toi 😂"
     return message
   }
 }
@@ -90,6 +92,7 @@ rejouer.addEventListener('click',() => {
   loadQuestion();
   score = 0;
   myBarProgress = 0;
+  afficherScore.innerText = 0
   resetProgress()
 })
 
