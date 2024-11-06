@@ -21,11 +21,37 @@ export const quiz_cinema = {
         options:["Ridley Scott","Steven Spielberg","Robert Zemeckis"],
         correct_answer: "Steven Spielberg"
       },
-
       {
         text:"Quel est la durée du film le plus long du monde ?",
         options:["857 heures","10 heures et 43 minutes","9 heures"],
         correct_answer: "857 heures"
+      },
+      {
+        text: "Quel est le film qui à le plus long générique ?",
+        options: ["Il était une fois dans l'ouest", "Seigneur des anneaux","Harry Potter"],
+        correct_answer: "Il était une fois dans l'ouest"
+      },
+      {
+        text: "Quel est le nom du chien de Doc dans retour vers le futur ?",
+        options: ["Copernic","Newton","Einstein"],
+        correct_answer: "Einstein"
+      },
+      {
+        text:"Dans Matrix 2, quel est le surnom du personnage joué par Lambert Wilson ?",
+        options:["L'ottonien","Le mérovingien","Le carolingien"],
+        correct_answer: "Le mérovingien"
+      },
+
+      {
+        text:"Dans Apocalypse Now, quel est le titre de la musique classique de la scène de l'attaque des hélicoptères ?",
+        options:["La chevauchée des Walkyries","Le crépuscule des dieux","Les murmures de la fôret"],
+        correct_answer: "La chevauchée des Walkyries"
+      },
+
+      {
+        text:"Dans retour vers le futur 2, quelle est la date du voyage vers le futur ?",
+        options:["21 octobre 2016","21 octobre 2017","21 octobre 2015"],
+        correct_answer: "21 octobre 2015"
       },
     ]
   };

@@ -50,12 +50,20 @@ function checkAnswer (answer, question) {
 
 //créer la fonction messageFin pour afficher le message final avec le score
 function messageFin () {
-  if (score <= 2 ) {
-    let message = score + "/" + longeurTableau + " nul à chier 😱"
+  if (score <= 1 ) {
+    let message = score + "/" + longeurTableau + " Culture cinématographique à revoir 😱"
     return message
   }  
-  else {
-    let message = score + "/" + longeurTableau + " bien joué 😎"
+  if (score <= 4) {
+    let message = score + "/" + longeurTableau + " Toi et le cinéma ça fait 2 non ? 😏 "
+    return message
+  }
+  if (score <= 6 ) {
+    let message = score + "/" + longeurTableau + " Tu peux être content.e de toi tu as un minimun de culture 🥳"
+    return message
+  }
+  if (score <= 8) {
+    let message = score + "/" + longeurTableau + " Félicitations tu passes plus de temps au cinéma que chez toi 😂"
     return message
   }
 }
