@@ -43,7 +43,7 @@ export const quiz_cinema = {
       },
 
       {
-        text:"Dans Apocalypse Now, quel est le titre de la musique classique de la scène de l'attaque des hélicoptères ?",
+        text:"Dans Apocalypse Now, quel est le titre de la musique de la scène de l'attaque des hélicoptères ?",
         options:["La chevauchée des Walkyries","Le crépuscule des dieux","Les murmures de la fôret"],
         correct_answer: "La chevauchée des Walkyries"
       },

@@ -15,19 +15,22 @@ body {
     border-color: rgb(191, 96, 191);
     margin: 30px;
     font-family: monospace;
-    font-size: 12mm;
+    font-size: 10mm;
     
     
 }
 #options-container button {
+    display: block;
+    width: 50%;
     font-family: monospace;
     border: 0.2rem solid #fff;
     padding: 0.4em;
-    font-size: 10mm;
+    font-size: 9mm;
     border-radius: 15px;
     box-shadow: 0 0 1px #981616, 0 0 2px #981616, 0 0 6px #981616, 0 0 12px #981616, inset 0 0 1px #981616, inset 0 0 2px #981616, inset 0 0 6px #981616, inset 0 0 12px #981616;
     background-color: whitesmoke;
-    margin: 10px;
+    margin: auto;
+    margin-bottom: 10px;
     border-color: rgb(191, 96, 191);
     
     &.right-answer { 
@@ -46,6 +49,9 @@ body {
     transform: scale(1.1);
 }
 #next-button, #replay-button {
+    position: fixed;
+    bottom: 200px;
+    right: 160px;
     float: right;
     background-color: whitesmoke;
     border: 0.2rem solid #fff;
@@ -69,12 +75,15 @@ body {
 }
 
 #progressBar {
+    margin: auto;
+    position: fixed;
+    bottom: 90px;
+    left: 370px;
     width: 50%;
     height: 2rem;
     box-shadow: 0 0 1px #981616, 0 0 2px #981616, 0 0 6px #981616, 0 0 12px #981616, inset 0 0 1px #981616, inset 0 0 2px #981616, inset 0 0 6px #981616, inset 0 0 12px #981616;
     border-radius: 15px;
     border: 0.2rem solid rgb(191, 96, 191);
-    margin: auto;
     margin-top:  150px;
     background-color: whitesmoke;
 }
