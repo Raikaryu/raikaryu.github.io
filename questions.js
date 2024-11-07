@@ -7,8 +7,8 @@ export const quiz_cinema = {
       },
       {
         text: "Quelle est l'actrice la plus oscarisée au monde ?",
-        options: ["Jane Fonda","Katherine Hepburn","Meryl Streep"],
-        correct_answer: "Katherine Hepburn"
+        options: ["Jane Fonda","Katharine Hepburn","Meryl Streep"],
+        correct_answer: "Katharine Hepburn"
       },
       {
         text:"Parmi ces 3 films, lequel a eu une projection 3D en premier au cinéma ?",
