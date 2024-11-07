@@ -27,12 +27,12 @@ export const quiz_cinema = {
         correct_answer: "857 heures"
       },
       {
-        text: "Quel est le film qui à le plus long générique ?",
+        text: "Quel est le film qui a le plus long générique ?",
         options: ["Il était une fois dans l'ouest", "Seigneur des anneaux","Harry Potter"],
         correct_answer: "Il était une fois dans l'ouest"
       },
       {
-        text: "Quel est le nom du chien de Doc dans retour vers le futur ?",
+        text: "Quel est le nom du chien de Doc dans Retour vers le futur ?",
         options: ["Copernic","Newton","Einstein"],
         correct_answer: "Einstein"
       },
@@ -49,7 +49,7 @@ export const quiz_cinema = {
       },
 
       {
-        text:"Dans retour vers le futur 2, quelle est la date du voyage vers le futur ?",
+        text:"Dans Retour vers le futur 2, quelle est la date du voyage vers le futur ?",
         options:["21 octobre 2016","21 octobre 2017","21 octobre 2015"],
         correct_answer: "21 octobre 2015"
       },
